@@ -952,7 +952,18 @@ body {
 .home__title-color {
   color: var(--color-primary);
 }
+/* Left (text) column */
+.home__left {
+    flex: 1;
+    max-width: 550px;        /* 🔥 prevents text from stretching too wide */
+}
 
+/* Right (avatar) column */
+.home__right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
 .home__subtitle {
   font-size: var(--font-size-2xl);
   color: var(--color-text-secondary);
@@ -985,10 +996,33 @@ body {
 }
 
 .home__img {
+   width: 280px;
+  height: 280px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  overflow: visible !important;
 }
+.home__img svg {
+  width: 230%;
+  height: auto;
+  display: block;
+}
+@media (max-width: 768px) {
+    .home__container {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 20px;
+    }
 
+    .home__left {
+        max-width: 100%;
+    }
+
+    .home__avatar svg {
+        width: 180px;
+    }
+}
 .home__blob {
   width: 300px;
   height: 300px;
@@ -1227,9 +1261,17 @@ body {
 
 .project__img {
   height: 200px;
+  width: 100%;
   overflow: hidden;
+  border-radius: 12px 12px 0 0;
+  background: #1a1a1a;
 }
-
+.project__thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 .project__img-placeholder {
   width: 100%;
   height: 100%;
